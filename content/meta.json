@@ -1,0 +1,243 @@
+[
+    {
+      "description": "Fierce violet creature. Very durable and tanky.",
+      "image": "https://fuchsia-permanent-turtle-550.mypinata.cloud/ipfs/QmScveKqD2mYxToWqCopR5zXZdmTwbZm5ytvpGQZii1FWZ",
+      "name": "NFT Creature #1",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "30"
+        },
+        {
+          "trait_type": "health",
+          "value": "80"
+        },
+        {
+          "trait_type": "speed",
+          "value": "40"
+        }
+      ]
+    },
+  
+    {
+      "description": "Fierce blueish creature. Avarage in attack and speed.",
+      "image": "https://fuchsia-permanent-turtle-550.mypinata.cloud/ipfs/QmeBS5CXmiwEjdL967qw25iL6ETrmwZxEvch5EUZusZ1Gu",
+      "name": "NFT creature #2",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "60"
+        },
+        {
+          "trait_type": "health",
+          "value": "110"
+        },
+        {
+          "trait_type": "speed",
+          "value": "70"
+        }
+      ]
+    },
+  
+    {
+      "description": "A lion who is always happy",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmfQfcdieypw4dRZqJbzWRXRxYJN7D9MwBAyqeqTQ5HZ1m",
+      "name": "NFT creature #3",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "825"
+        },
+        {
+          "trait_type": "health",
+          "value": "435"
+        },
+        {
+          "trait_type": "speed",
+          "value": "300"
+        }
+      ]
+    },
+  
+    {
+      "description": "Tiger walking in the road",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmfMqrtAyrpYM4vjFHyNWWZTBvPcMrnSP4SVMytF3Y7FmR",
+      "name": "NFT creature #4",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "70"
+        },
+        {
+          "trait_type": "health",
+          "value": "130"
+        },
+        {
+          "trait_type": "speed",
+          "value": "60"
+        }
+      ]
+    },
+  
+    {
+      "description": "Elephant swimming with his baby",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmQG1ymtWLswBpGeVewqAN4LcryWvzGDRuoQD9PjJGgTbg",
+      "name": "NFT creature #5",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "80"
+        },
+        {
+          "trait_type": "health",
+          "value": "50"
+        },
+        {
+          "trait_type": "speed",
+          "value": "40"
+        }
+      ]
+    },
+  
+    {
+      "description": "beer enjoying snow fall moment ",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmWy3WiJidqyuWBb97NK9i5d72QymY2JrY98UGHAdSvtEb",
+      "name": "NFT creature #6",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "120"
+        },
+        {
+          "trait_type": "health",
+          "value": "100"
+        },
+        {
+          "trait_type": "speed",
+          "value": "70"
+        }
+      ]
+    },
+  
+    {
+      "description": "Horse ",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/Qmc6QJiwHYtrcTzXXXGinYnZcJEe8M8i1YyEwUw9xVKqTM",
+      "name": "NFT creature #7",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "15,00"
+        },
+        {
+          "trait_type": "health",
+          "value": "230"
+        },
+        {
+          "trait_type": "speed",
+          "value": "90"
+        }
+      ]
+    },
+  
+    {
+      "description": "cat and sheep seeing each other ",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmbujFBY4zfo4yibkNTiDsSW8LiuigSiQaFB9cYXpBVArT",
+      "name": "NFT creature #8",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "780"
+        },
+        {
+          "trait_type": "health",
+          "value": "160"
+        },
+        {
+          "trait_type": "speed",
+          "value": "110"
+        }
+      ]
+    },
+  
+  
+    {
+      "description": "Flamingo and Eagle",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmVWQJkoYYzY5vTkTBLkPX679bFJHoAG8KuGXumdwaukgT",
+      "name": "NFT creature #9",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "19,700"
+        },
+        {
+          "trait_type": "health",
+          "value": "700"
+        },
+        {
+          "trait_type": "speed",
+          "value": "420"
+        }
+      ]
+    },
+  
+    {
+      "description": "Fire under the sea and fish are enjoying that moment",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmfLSALX7RDDEZNpVv1rbouXfAzpEQJyYKkAcs49fd6DrQ",
+      "name": "NFT creature #10",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "750"
+        },
+        {
+          "trait_type": "health",
+          "value": "320"
+        },
+        {
+          "trait_type": "speed",
+          "value": "90"
+        }
+      ]
+    },
+  
+    {
+      "description": "Monkey NFT",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmYDsnjvxryKTi7LCAW7ZhXUmLzE5edLJRkJuydDdkfGJD",
+      "name": "NFT creature #11",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "640"
+        },
+        {
+          "trait_type": "health",
+          "value": "290"
+        },
+        {
+          "trait_type": "speed",
+          "value": "110"
+        }
+      ]
+    },
+  
+    {
+      "description": "Black Panther NFT",
+      "image": "https://amber-managerial-stingray-431.mypinata.cloud/ipfs/QmWJM6outRwVG94V28wwUAEgvCKcGNxmHgLZ9zXAJNyvo3",
+      "name": "NFT creature #11",
+      "attributes": [
+        {
+          "trait_type": "attack",
+          "value": "1240"
+        },
+        {
+          "trait_type": "health",
+          "value": "690"
+        },
+        {
+          "trait_type": "speed",
+          "value": "190"
+        }
+      ]
+    }
+  
+  ]
