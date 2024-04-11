@@ -1,0 +1,1 @@
+export {default as web3Provider} from "./web3"

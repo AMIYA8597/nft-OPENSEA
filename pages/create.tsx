@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Switch } from '@headlessui/react'
 import Link from 'next/link'
 // import { BaseLayout } from '@/components';
-import  BaseLayout  from '../components/layout/BaseLayout';
+import  BaseLayout  from '../components/ui/layout/BaseLayout';
 
 const ATTRIBUTES = ["health", "attack", "speed"]
 

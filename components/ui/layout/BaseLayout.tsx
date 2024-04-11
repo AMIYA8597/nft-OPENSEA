@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactElement } from "react"
-import  Navbar  from "../navBar";
+import  Navbar  from "../navbar";
 interface childrenProps {
     children : ReactElement | ReactElement[]
 }

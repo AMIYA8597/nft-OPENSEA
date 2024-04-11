@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import NftItem from "../items";
-import { NftMeta } from "../../types/nft";
+import { NftMeta } from "../../../../types/nft";
 
 // interface NftListProps 
 //     { 
