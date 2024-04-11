@@ -15,8 +15,6 @@ import { NftMeta } from "../../types/nft";
     item : NftMeta[]
  }
 
-
-
 // interface NftListPops {
 //     item : any[] 
 // }
@@ -26,12 +24,12 @@ import { NftMeta } from "../../types/nft";
     const NftList: FunctionComponent <NftListProps> = ({item}) => {
         return (
             <>
-    {item.map( (nft) => {
+    {item.map( (nft) => (
          <div key = {nft.image} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <NftItem  item = {nft}/>
                 {/* <NftItem /> */}
         </div>
-    })}
+    ))}
                
             </>
         );
