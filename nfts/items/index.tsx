@@ -1,6 +1,10 @@
 import { FunctionComponent } from "react";
+import { NftMeta } from "../../types/nft";
 
-const NftItem : FunctionComponent = () => {
+interface NftItemProps  { item: NftMeta; }
+
+
+const NftItem : FunctionComponent<NftItemProps> = ({item}) => {
     return (
         <>
         <div className="flex-shrink-0">
