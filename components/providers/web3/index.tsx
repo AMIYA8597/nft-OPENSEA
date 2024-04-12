@@ -1,6 +1,6 @@
 import { FunctionComponent, createContext, useContext, useEffect, useState } from "react";
 import {createDefaultState, Web3State } from "./utils"
-import { ethers } from "ethers";
+import { BrowserProvider, parseUnits, ethers } from "ethers";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 
 const Web3Context = createContext<Web3State> ( createDefaultState() );
@@ -11,11 +11,15 @@ const Web3Provider : FunctionComponent<any> = ({children}) => {
 
  const ethereum = typeof window !== "undefined" ?  window.ethereum : null;
 
+ const provider = ethereum ? new ethers.BrowserProvider(window.ethereum) :null
+
+ // Checking if MetaMask is installed
+
  useEffect(()=>{ 
     function initWeb3() {
         setwebApi({
             ethereum:ethereum,
-            provider :null,
+            provider :provider,
             contract : null,
             isLoading : false,
         })
