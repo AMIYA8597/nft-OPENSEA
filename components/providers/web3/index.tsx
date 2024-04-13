@@ -5,7 +5,7 @@ import { MetaMaskInpageProvider } from "@metamask/providers";
 
 const Web3Context = createContext<Web3State> ( createDefaultState() );
 
-const Web3Provider : FunctionComponent<any> = ({children}) => {
+const  Web3Provider : FunctionComponent<any> = ({children}) => {
 
  const [web3Api , setwebApi] = useState<Web3State>(createDefaultState())
 
