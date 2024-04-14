@@ -29,6 +29,20 @@ export const createDefaultState = () =>{
 
 
 
+export const loadContract = async (provider : BrowserProvider) => {
+
+    const res = await fetch(contracts/SimpleStorage.json);
+    // const res = await fetch(../../build/contracts/SimpleStorage.json);
+    const Artifacts = await res.json();
+    const contract = new ethers.Contract(Artifacts.networks[5777].address,
+        Artifacts.abi, provider)
+
+        return contract
+}
+
+
+
+
 
 
 

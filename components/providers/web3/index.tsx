@@ -1,5 +1,5 @@
 import { FunctionComponent, createContext, useContext, useEffect, useState } from "react";
-import {createDefaultState, Web3State } from "./utils"
+import {createDefaultState, loadContract, Web3State } from "./utils"
 import { BrowserProvider, parseUnits, ethers } from "ethers";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 
@@ -16,7 +16,10 @@ const  Web3Provider : FunctionComponent<any> = ({children}) => {
  // Checking if MetaMask is installed
 
  useEffect(()=>{ 
-    function initWeb3() {
+   async function initWeb3() {
+        console.log("Init web3")
+
+        const contract = await loadContract(provider)
         setwebApi({
             ethereum:ethereum,
             provider :provider,
