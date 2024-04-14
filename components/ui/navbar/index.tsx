@@ -5,6 +5,7 @@ import Link from "next/link";
 import logo from "@images/small-eth.webp"
 import ActiveLink from "../link";
 import { useweb3 } from "@/components/providers/web3";
+import { useAccount } from "@/components/hooks/useAccount";
 
 const navigation = [
   { name: "MarketPlace", href: "/", current: true },
@@ -20,6 +21,10 @@ function classNames(...classes: string[]) {
 export default function Navbar() {
   const {contract} = useweb3()
   console.log("this is inside navbar", contract );
+
+  const {data} = useAccount("some random params");
+  console.log("data is",data);
+  
   
   return (
     <Disclosure as="nav" className="bg-gray-800">
