@@ -1,4 +1,5 @@
 import { MetaMaskInpageProvider } from "@metamask/providers"
+import { promises } from "dns"
 import { BrowserProvider, Contract, ethers,Provider } from "ethers"
 
 declare global {
@@ -27,17 +28,24 @@ export const createDefaultState = () =>{
 }
 
 
+const NETWORK_ID = 5777
 
+export const loadContract = async (provider : BrowserProvider, name:String): Promise<Contract> => {
 
-export const loadContract = async (provider : BrowserProvider) => {
-
-    const res = await fetch(contracts/SimpleStorage.json);
+    const res = await fetch(`contracts/${name}.json`);
     // const res = await fetch(../../build/contracts/SimpleStorage.json);
     const Artifacts = await res.json();
-    const contract = new ethers.Contract(Artifacts.networks[5777].address,
-        Artifacts.abi, provider)
+    if(Artifacts.networks[NETWORK_ID]){
 
-        return contract
+        const contract = new ethers.Contract(Artifacts.networks[NETWORK_ID].address,
+            Artifacts.abi, provider)
+            console.log("this is inside loadContract", contract);
+            
+            return contract
+    } else {
+        return Promise.reject(`contract ${name} cannot be loaded`);
+    }
+
 }
 
 

@@ -19,11 +19,11 @@ const  Web3Provider : FunctionComponent<any> = ({children}) => {
    async function initWeb3() {
         console.log("Init web3")
 
-        const contract = await loadContract(provider)
+        const contract = await loadContract(provider!, "SimpleStorage")
         setwebApi({
             ethereum:ethereum,
             provider :provider,
-            contract : null,
+            contract : contract,
             isLoading : false,
         })
     }
