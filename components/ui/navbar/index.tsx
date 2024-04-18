@@ -5,7 +5,7 @@ import Link from "next/link";
 import logo from "@images/small-eth.webp"
 import ActiveLink from "../link";
 import { useweb3 } from "@/components/providers/web3";
-import { useAccount } from "@/components/hooks/useAccount";
+import { useAccount } from "@/components/hooks/web3/useAccount";
 
 const navigation = [
   { name: "MarketPlace", href: "/", current: true },
