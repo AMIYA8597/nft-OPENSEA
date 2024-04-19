@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import logo from "@images/small-eth.webp"
 import ActiveLink from "../link";
-import { useweb3 } from "@/components/providers/web3";
+import { useWeb3 } from "@/components/providers/web3";
 import { useAccount } from "@/components/hooks/web3/useAccount";
 
 const navigation = [
@@ -19,7 +19,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
-  const {contract} = useweb3()
+  const {contract} = useWeb3()
   console.log("this is inside navbar", contract );
 
   const {data} = useAccount("some random params");

@@ -1,37 +1,16 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
-
-// export default function Home() {
-//   return (
-//     <div className={styles.container}>  Hello openRiver</div>
-//   )
-// }
-
-
-
-
-
-
-
-
-
-/* eslint-disable @next/next/no-img-element */
-
 import type { NextPage } from 'next';
 import { BaseLayout } from '../components/ui';
 import NftList from '../components/ui/nfts/list';
 import nfts from "../content/meta.json"
 import { NftMeta } from '../types/nft';
-import { useweb3 } from '@/components/providers/web3';
+import { useWeb3 } from '@/components/providers/web3';
 import { useEffect } from 'react';
 import { ethers , formatUnits } from 'ethers';
-
 
 const Home: NextPage = () => {
   // const {test} = useweb3
 
-  const {ethereum, provider, isLoading} = useweb3();
+  const {ethereum, provider, isLoading} = useWeb3();
   console.log("ethereum is",ethereum)
   console.log("provider is",provider)
   console.log("isLoading is",isLoading)
@@ -102,6 +81,37 @@ export default Home;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// import Head from 'next/head'
+// import Image from 'next/image'
+// import styles from '../styles/Home.module.css'
+
+// export default function Home() {
+//   return (
+//     <div className={styles.container}>  Hello openRiver</div>
+//   )
+// }
+
+
+
+
+
+
+
+
+
+/* eslint-disable @next/next/no-img-element */
 
 
 
