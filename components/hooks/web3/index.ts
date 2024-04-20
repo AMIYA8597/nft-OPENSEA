@@ -10,9 +10,9 @@ export const useAccount = () => {
   }
 }
 
-export const useNetworks =() => {
+export const useNetwork =() => {
   const hook = useHooks();
-  const swrRes = hooks.useNetworks();
+  const swrRes = hook.useNetwork();
 
   return {
     network: swrRes
