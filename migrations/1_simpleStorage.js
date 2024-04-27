@@ -1,9 +1,11 @@
 var SimpleStorage = artifacts.require("./SimpleStorage.sol");
 var SecondStorage = artifacts.require("./SecondStorage.sol");
+var MintToken = artifacts.require("./MintToken.sol");
 
 module.exports = function (deployer) {
     deployer.deploy(SimpleStorage);
     deployer.deploy(SecondStorage);
+    deployer.deploy(MintToken);
 }
 
 
