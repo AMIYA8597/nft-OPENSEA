@@ -22,12 +22,12 @@ uint256 private _tokenIds;
   mapping(string =>bool) private _usedTokenURIs;
   mapping(uint256 => NftItem) private _idNftItem;
 
-  event NftItemCreated {
+  event NftItemCreated (
         uint256 tokenId,
         uint256 price,
         address creator,
-        bool isListed,
-  }
+        bool isListed
+  );
 
   constructor() ERC721("CreatureNFT", "CNFT") {}
 
@@ -40,27 +40,29 @@ uint256 private _tokenIds;
   }
 
   function tokenURIExists (string memory tokenURI) public view returns (bool) {
-    return usedTokenURI[tokenURI];
+    return _usedTokenURIs[tokenURI];
 
   }
 
-  function mintToken(string memory tokenURI) public payable returns (uint256) {
-    // _tokenIds++;
-    // _listedItems++;
+  function mintToken(string memory tokenURI, uint256 price) public payable returns (uint256) {
+    
+    _tokenIds++;
+    _listedItems++;
+
     uint256 newTokenId = _tokenIdsCount;
 
     _safeMint(msg.sender, newTokenId); 
     _setTokenURI(newTokenId, tokenURI);
-    createNftItem(newTokenId, price);
-    _usedTokenURIs[tokenURI] = true
+    _createNftItem(newTokenId, price);
+    _usedTokenURIs[tokenURI] = true;
 
     return newTokenId;
   }
 
   function _createNftItem (uint256 tokenId, uint256 price) private {
     require(price >0, "Price atleast 100 wei ");
-    _idTokenNftItem[tokenId] = NftItem(tokenId, price, msg.sender,true);
-    emit NftItemCreated ( tokenId, price, msg.sender, true)
+    _idNftItem[tokenId] = NftItem(tokenId, price, msg.sender,true);
+    emit NftItemCreated ( tokenId, price, msg.sender, true);
 
   }
 }
