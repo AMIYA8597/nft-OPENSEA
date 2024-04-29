@@ -41,7 +41,7 @@ uint256 private _tokenIds;
 
   function tokenURIExists (string memory tokenURI) public view returns (bool) {
     return _usedTokenURIs[tokenURI];
-
+    
   }
 
   function mintToken(string memory tokenURI, uint256 price) public payable returns (uint256) {
@@ -66,13 +66,6 @@ uint256 private _tokenIds;
 
   }
 }
-
-
-
-
-
-
-
 
 
 
