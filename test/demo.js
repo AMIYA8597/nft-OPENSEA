@@ -1,9 +1,9 @@
 //  const hardHat = require('@nomiclabs/hardhat-truffle5');
 
-const NftMarket = artifacts.require("./MintToken.sol");
+const NftMarket = artifacts.require("NftMarket");
 const deployedAddress = process.env.NFT_MARKET_ADDRESS; // Replace with deployed address from truffle console
 
-contract("MintToken", (accounts) => {
+contract("NftMarket", (accounts) => {
     let _contract = null;
 
     before(async () => {

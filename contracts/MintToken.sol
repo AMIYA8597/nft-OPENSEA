@@ -48,7 +48,7 @@ uint256 private _tokenIds;
     
     _tokenIds++;
     _listedItems++;
-
+    
     uint256 newTokenId = _tokenIdsCount;
 
     _safeMint(msg.sender, newTokenId); 
