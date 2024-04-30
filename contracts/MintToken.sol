@@ -43,7 +43,7 @@ uint256 private _tokenIds;
     return _usedTokenURIs[tokenURI];
     
   }
-
+  
   function mintToken(string memory tokenURI, uint256 price) public payable returns (uint256) {
     
     _tokenIds++;
