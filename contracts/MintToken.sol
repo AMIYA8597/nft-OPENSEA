@@ -12,7 +12,6 @@ struct NftItem {
     address creator;
     bool isListed;
 }
-
 uint256 private _listedItemsCount;
 uint256 private _tokenIds;
 
@@ -20,7 +19,7 @@ uint256 private _tokenIds;
   uint256 private _tokenIdsCount;
 
   mapping(string =>bool) private _usedTokenURIs;
-  mapping(uint256 => NftItem) private _idNftItem;
+  mapping(uint256 => NftItem) private _idToNftItem;
 
   event NftItemCreated (
         uint256 tokenId,
@@ -32,7 +31,7 @@ uint256 private _tokenIds;
   constructor() ERC721("CreatureNFT", "CNFT") {}
 
   function getNftItem(uint256 tokenId) public view returns (NftItem memory){
-    return _idNftItem[tokenId];
+    return _idToNftItem[tokenId];
   }
 
   function listedItemsCount() public view returns (uint256) {
@@ -59,13 +58,33 @@ uint256 private _tokenIds;
     return newTokenId;
   }
 
+
+
+
+
+    function buyNft(uint256 tokenId) public payable {
+        uint256 price = _idToNftItem[tokenId].price;
+        address owner = ownerOf(tokenId);
+
+        require(owner != msg.sender, "You already own this NFT");
+        require(msg.value == price, "Please submit the asking price");
+
+        _idToNftItem[tokenId].isListed = false;
+        _listedItems--;
+
+        _transfer(owner, msg.sender, tokenId);
+        payable(owner).transfer(msg.value);
+    }
+
+
+
+
+
+
   function _createNftItem (uint256 tokenId, uint256 price) private {
     require(price >0, "Price atleast 100 wei ");
-    _idNftItem[tokenId] = NftItem(tokenId, price, msg.sender,true);
+    _idToNftItem[tokenId] = NftItem(tokenId, price, msg.sender,true);
     emit NftItemCreated ( tokenId, price, msg.sender, true);
 
   }
 }
-
-
-
