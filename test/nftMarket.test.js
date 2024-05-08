@@ -8,8 +8,8 @@ contract ("NftMarket", (accounts) =>{
     before(async () => {
         _contract =await  NftMarket.deployed();
     });
-
-    describe(" Mint token ", ()=>{
+    
+    describe(" MintToken ", ()=>{
       const tokenURI = "https://nfttoken.com";
       const nftPrice = web3.utils.toWei("5", "ether");
       const listingPrice = web3.utils.toWei("0.5", "ether");
