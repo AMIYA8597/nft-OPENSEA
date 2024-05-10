@@ -79,32 +79,33 @@ contract("NftMarket", (accounts) => {
         });
         
     }); 
+
     
     describe("Buy NFT", () => {
-      it("should unlist the item", async () => {
-          const tokenURI = "https://nfttoken.com/1";
-          await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
-          await _contract.buyNft(1, { from: accounts[1], value: nftPrice });
-          const listedItem = await _contract.getNftItem(1);
-          assert.equal(listedItem.isListed, false, "Item is still listed");
-      });
-
-      it("should decrease listed items count", async () => {
-          const tokenURI = "https://nfttoken.com/2";
-          await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
-          await _contract.buyNft(2, { from: accounts[1], value: nftPrice });
-          const listedItemsCount = await _contract.listedItemsCount();
-          assert.equal(listedItemsCount.toNumber(), 0, "Count has not been decremented");
-      });
-
-      it("should change the owner", async () => {
-          const tokenURI = "https://nfttoken.com/3";
-          await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
-          await _contract.buyNft(3, { from: accounts[1], value: nftPrice });
-          const currentOwner = await _contract.ownerOf(3);
-          assert.equal(currentOwner, accounts[1], "Owner has not been changed");
-      });
-  });
+        it("should unlist the item", async () => { 
+            const tokenURI = "https://nfttoken.com/6"; // Use a new tokenURI
+            await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+            await _contract.buyNft(6, { from: accounts[1], value: nftPrice });
+            const listedItem = await _contract.getNftItem(6);
+            assert.equal(listedItem.isListed, false, "Item is still listed");
+        });
+    
+        it("should decrease listed items count", async () => {
+            const tokenURI = "https://nfttoken.com/7"; // Use a new tokenURI
+            await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+            await _contract.buyNft(7, { from: accounts[1], value: nftPrice });
+            const listedItemsCount = await _contract.listedItemsCount();
+            assert.equal(listedItemsCount.toNumber(), 0, "Count has not been decremented");
+        });
+    
+        it("should change the owner", async () => {
+            const tokenURI = "https://nfttoken.com/8"; // Use a new tokenURI
+            await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+            await _contract.buyNft(8, { from: accounts[1], value: nftPrice });
+            const currentOwner = await _contract.ownerOf(8);
+            assert.equal(currentOwner, accounts[1], "Owner has not been changed");
+        });
+    });
 });
 
 
