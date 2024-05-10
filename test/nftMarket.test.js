@@ -23,7 +23,10 @@ contract("NftMarket", (accounts) => {
             assert.equal(owner, accounts[0], "owner address[0] is not matching");
         });
 
-
+        it("owner of the first token should be address[0]", async () => {
+            const owner = await _contract.ownerOf(1);
+            assert.equal(owner, accounts[0], "Owner of token is not matching address[0]");
+          })
 
         it("first token should be point to the correct tokenURI", async () => {
             const tokenURI = "https://nfttoken.com/2";
