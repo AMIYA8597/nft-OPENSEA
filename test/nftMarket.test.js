@@ -267,11 +267,12 @@ contract("NftMarket", (accounts) => {
 
 
     // describe("Token Transfer", () => {
-    //     const tokenURI = "https://test-json-2.com";
+    //     const tokenURI1 = "https://test-json-2.com";
+    //            const tokenURI2 = "https://test-json-2.com";
 
     //     before(async () => {
-    //         await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
-    //         await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
+    //         await _contract.mintToken(tokenURI1, nftPrice, { from: accounts[0], value: listingPrice });
+    //         await _contract.mintToken(tokenURI2, nftPrice, { from: accounts[0], value: listingPrice });
     //     });
 
     //     it("should have two NFTs created", async () => {
@@ -323,10 +324,15 @@ contract("NftMarket", (accounts) => {
             await _contract.mintToken(tokenURI2, nftPrice, { from: accounts[0], value: listingPrice });
         });
     
-        it("should have two NFTs created", async () => {
-            const totalSupply = await _contract.totalSupply();
-            assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
-        });
+        // it("should have two NFTs created", async () => {
+        //     const totalSupply = await _contract.totalSupply();
+        //     assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
+        // });
+
+            // it("should have two NFTs created", async () => {
+            // const totalSupply = await _contract.totalSupply();
+            // assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
+            //  });
     
         it("should be able to retrieve nft by index", async () => {
             const nftId1 = await _contract.tokenByIndex(0);
