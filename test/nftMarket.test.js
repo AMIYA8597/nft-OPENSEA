@@ -262,58 +262,6 @@ contract("NftMarket", (accounts) => {
             assert.equal(currentOwner, accounts[1], "Owner has not been changed");
         });
     });
-
-
-
-
-    // describe("Token Transfer", () => {
-    //     const tokenURI1 = "https://test-json-2.com";
-    //            const tokenURI2 = "https://test-json-2.com";
-
-    //     before(async () => {
-    //         await _contract.mintToken(tokenURI1, nftPrice, { from: accounts[0], value: listingPrice });
-    //         await _contract.mintToken(tokenURI2, nftPrice, { from: accounts[0], value: listingPrice });
-    //     });
-
-    //     it("should have two NFTs created", async () => {
-    //         const totalSupply = await _contract.totalSupply();
-    //         assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
-    //     });
-
-    //     it("should be able to retrieve nft by index", async () => {
-    //         const nftId1 = await _contract.tokenByIndex(0);
-    //         const nftId2 = await _contract.tokenByIndex(1);
-    //         assert.equal(nftId1.toNumber(), 1, "Nft id is wrong");
-    //         assert.equal(nftId2.toNumber(), 2, "Nft id is wrong");
-    //     });
-    // });
-
-    // describe("Other functions", () => {
-    //     it("should return true if tokenURI exists", async () => {
-    //         const tokenURI = "https://nfttoken.com/7";
-    //         await _contract.mintToken(tokenURI, nftPrice, {
-    //             value: listingPrice,
-    //             from: accounts[0],
-    //         });
-    //         const exists = await _contract.tokenURIExists(tokenURI);
-    //         assert.equal(exists, true, "tokenURIExists function is not working");
-    //     });
-
-    //     it("should reset listed items count", async () => {
-    //         const tokenURI = "https://nfttoken.com/8";
-    //         await _contract.mintToken(tokenURI, nftPrice, {
-    //             value: listingPrice,
-    //             from: accounts[0],
-    //         });
-    //         await _contract.resetListedItemsCount();
-    //         const listedItemsCount = await _contract.listedItemsCount();
-    //         assert.equal(listedItemsCount.toNumber(), 0, "listed items count is not reset");
-    //     });
-    // });
-
-
-
-
     
     describe("Token Transfer", () => {
         const tokenURI1 = "https://test-json-1.com";
@@ -324,16 +272,6 @@ contract("NftMarket", (accounts) => {
             await _contract.mintToken(tokenURI2, nftPrice, { from: accounts[0], value: listingPrice });
         });
     
-        // it("should have two NFTs created", async () => {
-        //     const totalSupply = await _contract.totalSupply();
-        //     assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
-        // });
-
-            // it("should have two NFTs created", async () => {
-            // const totalSupply = await _contract.totalSupply();
-            // assert.equal(totalSupply.toNumber(), 2, "Total supply of token is not correct");
-            //  });
-    
         it("should be able to retrieve nft by index", async () => {
             const nftId1 = await _contract.tokenByIndex(0);
             const nftId2 = await _contract.tokenByIndex(1);
@@ -341,8 +279,6 @@ contract("NftMarket", (accounts) => {
             assert.equal(nftId2.toNumber(), 2, "Nft id is wrong");
         });
     });
-
-
     
 });
 

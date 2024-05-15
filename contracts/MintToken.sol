@@ -127,20 +127,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity <=0.8.19;
-
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract NftMarket is ERC721URIStorage {
@@ -156,7 +144,7 @@ contract NftMarket is ERC721URIStorage {
     uint256 private _listedItemsCount;
     uint256 private _tokenIds;
     uint256[] private _allNfts;
-    uint256 public listingPrice = 0.025 ether;
+    // uint256 public listingPrice = 0.025 ether;
 
     mapping(string => bool) private _usedTokenURIs;
     mapping(uint256 => NftItem) private _idNftItem;
@@ -202,18 +190,14 @@ contract NftMarket is ERC721URIStorage {
         returns (uint256)
     {
         require(!_usedTokenURIs[tokenURI], "Token URI already exists");
-        require(msg.value == listingPrice, "Price must be equal to listing price");
-
+        // require(msg.value == listingPrice, "Price must be equal to listing price");
         _tokenIds++;
         uint256 newTokenId = _tokenIds;
-
         _safeMint(msg.sender, newTokenId);
         _setTokenURI(newTokenId, tokenURI);
         _createNftItem(newTokenId, price);
         _usedTokenURIs[tokenURI] = true;
-
         _listedItemsCount++;
-
         return newTokenId;
     }
 
@@ -223,7 +207,6 @@ contract NftMarket is ERC721URIStorage {
         address owner = ownerOf(tokenId);
         require(owner != msg.sender, "You already own this NFT");
         require(msg.value == price, "Please submit the asking price");
-
         item.isListed = false;
         _listedItemsCount--;
         _transfer(owner, msg.sender, tokenId);
@@ -243,10 +226,12 @@ contract NftMarket is ERC721URIStorage {
     function _beforeTokenTransfer(
         address from,
         address to,
-        uint256 tokenId
+        uint256 tokenId,
+        uint256 batchSize
     ) internal virtual override {
-        super._beforeTokenTransfer(from, to, tokenId);
-
+        super._beforeTokenTransfer(from, to, tokenId, 
+        batchSize
+        );
         // minting token
         if (from == address(0)) {
             _addTokenToAllTokensEnumeration(tokenId);
