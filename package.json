@@ -41,7 +41,7 @@
     "chai": "^4.4.1",
     "encoding": "^0.1.13",
     "ethers": "^5.7.2",
-    "hardhat": "^2.22.3",
+    "hardhat": "^2.22.5",
     "hardhat-gas-reporter": "^1.0.10",
     "postcss": "^8.4.38",
     "solidity-coverage": "^0.8.12",
