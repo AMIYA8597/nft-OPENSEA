@@ -315,10 +315,7 @@ contract NftMarket is ERC721URIStorage {
         return _allNfts[index];
     }
 
-    function tokenOfOwnerByIndex(address owner, uint256 index)
-        public
-        view
-        returns (uint256)
+    function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256)
     {
         require(index < ERC721.balanceOf(owner), "Index out of bounds");
         return _ownedTokens[owner][index];
