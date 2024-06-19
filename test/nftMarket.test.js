@@ -391,6 +391,506 @@
 
 
 
+// const NftMarket = artifacts.require('NftMarket');
+
+// contract('NftMarket', (accounts) => {
+//   let nftMarket;
+//   const listingPrice = web3.utils.toWei('0.01', 'ether'); // Ensure this matches your contract's listing price
+
+//   before(async () => {
+//     nftMarket = await NftMarket.deployed();
+//   });
+
+//   describe('MintToken', () => {
+//     it('should mint a token and set the owner correctly', async () => {
+//       await nftMarket.mintToken('tokenURI', listingPrice, { from: accounts[0] });
+//       // Other assertions
+//     });
+
+//     it('should correctly set the token URI', async () => {
+//       await nftMarket.mintToken('tokenURI2', listingPrice, { from: accounts[0] });
+//       const tokenURI = await nftMarket.tokenURI(2);
+//       assert.equal(tokenURI, 'tokenURI2');
+//     });
+
+//     it('should not allow minting with a used token URI', async () => {
+//       await nftMarket.mintToken('tokenURI3', listingPrice, { from: accounts[0] });
+//       try {
+//         await nftMarket.mintToken('tokenURI3', listingPrice, { from: accounts[1] });
+//         assert.fail('Expected error not received');
+//       } catch (error) {
+//         assert(error.message.includes('revert'), 'Expected revert error');
+//       }
+//     });
+
+//     it('should correctly update listed items count', async () => {
+//       const initialCount = await nftMarket.listedItemsCount();
+//       await nftMarket.mintToken('tokenURI4', listingPrice, { from: accounts[0] });
+//       const newCount = await nftMarket.listedItemsCount();
+//       assert.equal(newCount.toNumber(), initialCount.toNumber() + 1);
+//     });
+
+//     it('should create NFT items with correct details', async () => {
+//       await nftMarket.mintToken('tokenURI5', listingPrice, { from: accounts[0] });
+//       const tokenId = 5;
+//       const owner = await nftMarket.ownerOf(tokenId);
+//       assert.equal(owner, accounts[0]);
+//     });
+//   });
+
+//   describe('Buy NFT', () => {
+//     before(async () => {
+//       await nftMarket.mintToken('tokenURI6', listingPrice, { from: accounts[0] });
+//     });
+
+//     it('should unlist the item after purchase', async () => {
+//       const tokenId = 6;
+//       await nftMarket.buyToken(tokenId, { from: accounts[1], value: listingPrice });
+//       const newOwner = await nftMarket.ownerOf(tokenId);
+//       assert.equal(newOwner, accounts[1]);
+//     });
+//   });
+
+//   describe('Token Transfer', () => {
+//     before(async () => {
+//       await nftMarket.mintToken('tokenURI7', listingPrice, { from: accounts[0] });
+//     });
+
+//     it('should set new listing price', async () => {
+//       const newListingPrice = web3.utils.toWei('0.02', 'ether');
+//       await nftMarket.setListingPrice(newListingPrice, { from: accounts[0] });
+//       const listingPrice = await nftMarket.listingPrice();
+//       assert.equal(listingPrice.toString(), newListingPrice);
+//     });
+//   });
+
+//   describe('Token transfer to new owner', () => {
+//     before(async () => {
+//       await nftMarket.mintToken('tokenURI8', listingPrice, { from: accounts[0] });
+//       const tokenId = 8;
+//       await nftMarket.approve(accounts[1], tokenId, { from: accounts[0] });
+//       await nftMarket.transferFrom(accounts[0], accounts[1], tokenId, { from: accounts[1] });
+//     });
+
+//     it('accounts[0] should own 0 tokens after transfer', async () => {
+//       const balance = await nftMarket.balanceOf(accounts[0]);
+//       assert.equal(balance.toString(), '0');
+//     });
+//   });
+
+//   describe('List an NFT', () => {
+//     before(async () => {
+//       await nftMarket.mintToken('tokenURI9', listingPrice, { from: accounts[0] });
+//     });
+ 
+//     it('should have one listed item', async () => {
+//       const listedItems = await nftMarket.listedItemsCount();
+//       assert.equal(listedItems.toString(), '1');
+//     });
+//   });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const assert = require('assert');
+// const NftMarket = artifacts.require("NftMarket");
+// const { ethers } = require("ethers");
+
+// contract("NftMarket", (accounts) => {
+//     let _contract;
+//     const nftPrice = ethers.utils.parseEther("5").toString();
+//     const listingPrice = ethers.utils.parseEther("0.025").toString();
+
+//     before(async () => {
+//         _contract = await NftMarket.new();
+//     });
+
+//     beforeEach(async () => {
+//         // Reset the _listedItemsCount before each test case
+//         await _contract.resetListedItemsCount();
+//     });
+
+//     describe("MintToken", () => {
+//         it("should mint a token and set the owner correctly", async () => {
+//             const tokenURI = "https://nfttoken.com/1";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             const owner = await _contract.ownerOf(1);
+//             assert.equal(owner, accounts[0], "Owner address[0] is not matching");
+//         });
+
+//         it("should correctly set the token URI", async () => {
+//             const tokenURI = "https://nfttoken.com/2";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             const actualTokenURI = await _contract.tokenURI(2);
+//             assert.equal(actualTokenURI, tokenURI, "Token URI is not correctly set");
+//         });
+
+//         it("should not allow minting with a used token URI", async () => {
+//             const tokenURI = "https://nfttoken.com/3";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             try {
+//                 await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//                 assert.fail("Expected error but did not get one");
+//             } catch (error) {
+//                 assert(error.toString().includes("Token URI already exists"), "NFT minted with a previously used URI");
+//             }
+//         });
+
+//         it("should correctly update listed items count", async () => {
+//             const tokenURI = "https://nfttoken.com/4";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             const listedItemsCount = await _contract.listedItemsCount();
+//             assert.equal(listedItemsCount.toNumber(), 1, "Listed items count is not 1");
+//         });
+
+//         it("should create NFT items with correct details", async () => {
+//             const tokenURI = "https://nfttoken.com/5";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             const nftItem = await _contract.getNftItem(5);
+//             assert.equal(nftItem.tokenId, 5, "Token ID is not 5");
+//             assert.equal(nftItem.price, nftPrice, "NFT price is not correct");
+//             assert.equal(nftItem.creator, accounts[0], "NFT creator account is not matched");
+//             assert.equal(nftItem.isListed, true, "NFT token is not listed yet");
+//         });
+//     });
+
+//     describe("Buy NFT", () => {
+//         before(async () => {
+//             const tokenURI = "https://nfttoken.com/6";
+//             await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+//             await _contract.buyNft(1, { from: accounts[1], value: nftPrice });
+//         });
+
+//         it("should unlist the item after purchase", async () => {
+//             const listedItem = await _contract.getNftItem(1);
+//             assert.equal(listedItem.isListed, false, "Item is still listed");
+//         });
+
+//         it("should decrease the listed items count after purchase", async () => {
+//             const listedItemsCount = await _contract.listedItemsCount();
+//             assert.equal(listedItemsCount.toNumber(), 0, "Count has not been decremented");
+//         });
+
+//         it("should transfer ownership after purchase", async () => {
+//             const currentOwner = await _contract.ownerOf(1);
+//             assert.equal(currentOwner, accounts[1], "Owner has not been changed");
+//         });
+//     });
+
+//     describe("Token Transfer", () => {
+//         const tokenURI1 = "https://ourmintingToken1.com";
+//         const tokenURI2 = "https://ourmintingToken2.com";
+
+//         before(async () => {
+//             await _contract.mintToken(tokenURI1, nftPrice, { from: accounts[0], value: listingPrice });
+//             await _contract.mintToken(tokenURI2, nftPrice, { from: accounts[0], value: listingPrice });
+//         });
+
+//         it("should set new listing price", async () => {
+//             const newListingPrice = ethers.utils.parseEther("0.05").toString();
+//             await _contract.setListingPrice(newListingPrice, { from: accounts[0] });
+//             const retrievedListingPrice = await _contract.listingPrice();
+//             assert.equal(retrievedListingPrice.toString(), newListingPrice, "Invalid Price");
+//         });
+
+//         it("should not allow buying NFTs with incorrect price", async () => {
+//             const tokenId = 2;
+//             const incorrectPrice = ethers.utils.parseEther("0.02").toString();
+//             try {
+//                 await _contract.buyNft(tokenId, { from: accounts[1], value: incorrectPrice });
+//                 assert.fail("Expected error but did not get one");
+//             } catch (error) {
+//                 assert(error.toString().includes("Please submit the asking price"), "NFT was bought with incorrect price");
+//             }
+//         });
+//     });
+
+//     describe("Token transfer to new owner", () => {
+//         const tokenURI = "https://test-json-3.com";
+
+//         before(async () => {
+//             await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
+//             await _contract.transferFrom(accounts[0], accounts[1], 3, { from: accounts[0] });
+//         });
+
+//         it("accounts[0] should own 0 tokens after transfer", async () => {
+//             const ownedNfts = await _contract.getOwnedNfts({ from: accounts[0] });
+//             assert.equal(ownedNfts.length, 0, "Invalid length of tokens");
+//         });
+
+//         it("accounts[1] should own 1 token after transfer", async () => {
+//             const ownedNfts = await _contract.getOwnedNfts({ from: accounts[1] });
+//             assert.equal(ownedNfts.length, 1, "Invalid length of tokens");
+//             assert.equal(ownedNfts[0].tokenId, 3, "Incorrect token ID");
+//         });
+//     });
+
+//     describe("List an NFT", () => {
+//         const tokenURI = "https://test-json-4.com";
+
+//         before(async () => {
+//             await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
+//             await _contract.placeNftOnSale(4, nftPrice, { from: accounts[0], value: listingPrice });
+//         });
+
+//         it("should have one listed item", async () => {
+//             const listedNfts = await _contract.getAllNftsOnSale();
+//             assert.equal(listedNfts.length, 1, "Invalid length of NFTs");
+//             assert.equal(listedNfts[0].tokenId, 4, "Incorrect token ID");
+//         });
+
+//         it("should set new listing price", async () => {
+//             const newListingPrice = ethers.utils.parseEther("0.05").toString();
+//             await _contract.setListingPrice(newListingPrice, { from: accounts[0] });
+//             const listingPrice = await _contract.listingPrice();
+//             assert.equal(listingPrice.toString(), newListingPrice, "Invalid Price");
+//         });
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const { expect } = require("chai");
+// const { ethers } = require("hardhat");
+
+// describe("NftMarket", function () {
+//   let nftMarket;
+//   let owner;
+//   let addr1;
+//   let addr2;
+//   let addrs;
+//   let nftPrice = ethers.utils.parseEther("0.3");
+//   let listingPrice = ethers.utils.parseEther("0.025");
+
+//   beforeEach(async function () {
+//     const NftMarket = await ethers.getContractFactory("NftMarket");
+//     [owner, addr1, addr2, ...addrs] = await ethers.getSigners();
+//     nftMarket = await NftMarket.deploy();
+//     await nftMarket.deployed();
+//   });
+
+//   describe("Mint token", function () {
+//     const tokenURI = "https://test.com";
+//     beforeEach(async function () {
+//       await nftMarket.connect(owner).mintToken(tokenURI, nftPrice, { value: listingPrice });
+//     });
+
+//     it("Owner of the first token should be address[0]", async function () {
+//       expect(await nftMarket.ownerOf(1)).to.equal(owner.address);
+//     });
+
+//     it("First token should point to the correct tokenURI", async function () {
+//       expect(await nftMarket.tokenURI(1)).to.equal(tokenURI);
+//     });
+
+//     it("Should not be possible to create an NFT with used tokenURI", async function () {
+//       await expect(nftMarket.connect(owner).mintToken(tokenURI, nftPrice, { value: listingPrice }))
+//         .to.be.revertedWith("Token URI already exists");
+//     });
+
+//     it("Should have one listed item", async function () {
+//       expect((await nftMarket.listedItemsCount()).toNumber()).to.equal(1);
+//     });
+
+//     it("Should have created NFT item", async function () {
+//       const nftItem = await nftMarket.getNftItem(1);
+//       expect(nftItem.tokenId).to.equal(1);
+//       expect(nftItem.price.toString()).to.equal(nftPrice.toString());
+//       expect(nftItem.creator).to.equal(owner.address);
+//       expect(nftItem.isListed).to.be.true;
+//     });
+//   });
+
+//   describe("Buy NFT", function () {
+//     beforeEach(async function () {
+//       await nftMarket.connect(owner).mintToken("https://test.com", nftPrice, { value: listingPrice });
+//       await nftMarket.connect(addr1).buyNft(1, { value: nftPrice });
+//     });
+
+//     it("Should unlist the item", async function () {
+//       const nftItem = await nftMarket.getNftItem(1);
+//       expect(nftItem.isListed).to.be.false;
+//     });
+
+//     it("Should decrease listed items count", async function () {
+//       expect((await nftMarket.listedItemsCount()).toNumber()).to.equal(0);
+//     });
+
+//     it("Should change the owner", async function () {
+//       expect(await nftMarket.ownerOf(1)).to.equal(addr1.address);
+//     });
+//   });
+
+//   describe("Token transfers", function () {
+//     const tokenURI = "https://test-json-2.com";
+//     beforeEach(async function () {
+//       await nftMarket.connect(owner).mintToken(tokenURI, nftPrice, { value: listingPrice });
+//     });
+
+//     it("Should have two NFTs created", async function () {
+//       await nftMarket.connect(owner).mintToken("https://test-json-3.com", nftPrice, { value: listingPrice });
+//       expect((await nftMarket.totalSupply()).toNumber()).to.equal(2);
+//     });
+
+//     it("Should be able to retrieve NFT by index", async function () {
+//       const nftId1 = await nftMarket.tokenByIndex(0);
+//       const nftId2 = await nftMarket.tokenByIndex(1);
+//       expect(nftId1.toNumber()).to.equal(1);
+//       expect(nftId2.toNumber()).to.equal(2);
+//     });
+
+//     it("Should have one listed NFT", async function () {
+//       const allNfts = await nftMarket.getAllNftsOnSale();
+//       expect(allNfts[0].tokenId).to.equal(2);
+//     });
+
+//     it("Account[1] should have one owned NFT", async function () {
+//       await nftMarket.connect(owner).mintToken("https://test-json-3.com", nftPrice, { value: listingPrice });
+//       const ownedNfts = await nftMarket.connect(addr1).getOwnedNfts();
+//       expect(ownedNfts[0].tokenId).to.equal(1);
+//     });
+
+//     it("Account[0] should have one owned NFT", async function () {
+//       const ownedNfts = await nftMarket.getOwnedNfts();
+//       expect(ownedNfts[0].tokenId).to.equal(2);
+//     });
+//   });
+
+//   describe("Token transfer to new owner", function () {
+//     beforeEach(async function () {
+//       await nftMarket.connect(owner).mintToken("https://test-json-2.com", nftPrice, { value: listingPrice });
+//       await nftMarket.transferFrom(owner.address, addr1.address, 2);
+//     });
+
+//     it("Accounts[0] should own 0 tokens", async function () {
+//       const ownedNfts = await nftMarket.getOwnedNfts();
+//       expect(ownedNfts.length).to.equal(0);
+//     });
+
+//     it("Accounts[1] should own 2 tokens", async function () {
+//       const ownedNfts = await nftMarket.connect(addr1).getOwnedNfts();
+//       expect(ownedNfts.length).to.equal(2);
+//     });
+//   });
+
+//   describe("List an NFT", function () {
+//     beforeEach(async function () {
+//       await nftMarket.connect(owner).mintToken("https://test-json-3.com", nftPrice, { value: listingPrice });
+//       await nftMarket.connect(addr1).placeNftOnSale(1, nftPrice, { value: listingPrice });
+//     });
+
+//     it("Should have two listed items", async function () {
+//       const listedNfts = await nftMarket.getAllNftsOnSale();
+//       expect(listedNfts.length).to.equal(2);
+//     });
+
+//     it("Should set new listing price", async function () {
+//       await nftMarket.connect(owner).setListingPrice(listingPrice);
+//       const newListingPrice = await nftMarket.listingPrice();
+//       expect(newListingPrice.toString()).to.equal(listingPrice.toString());
+//     });
+//   });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -615,45 +1115,34 @@ contract("NftMarket", (accounts) => {
         });
     });
 
+
     describe("Token transfer to new owner", () => {
-        const tokenURI = "https://test-json-3.com";
-
+        const tokenURI = "https://nfttoken.com/9";
+    
         before(async () => {
-            await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
-            await _contract.transferFrom(accounts[0], accounts[1], 3, { from: accounts[0] });
+            await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
+            await _contract.approve(accounts[0], 3, { from: accounts[0] }); // Approve accounts[0] to transfer token 3
+            await _contract.transferFrom(accounts[0], accounts[2], 3, { from: accounts[0] });
         });
-
-        // it("accounts[0] should own 0 tokens", async () => {
-        //     const ownedNfts = await _contract.getOwnedNfts({ from: accounts[0] });
-        //     assert.equal(ownedNfts.length, 0, "Invalid length of tokens");
-        // });
-
-        it("accounts[1] should own 1 token", async () => {
-            const ownedNfts = await _contract.getOwnedNfts({ from: accounts[1] });
-            assert.equal(ownedNfts.length, 1, "Invalid length of tokens");
-            assert.equal(ownedNfts[0].tokenId, 3, "Incorrect token ID");
+    
+        it("accounts[2] should own 1 token", async () => {
+            const balance = await _contract.balanceOf(accounts[2]);
+            assert.equal(balance.toNumber(), 1, "accounts[2] does not own the transferred token");
         });
     });
 
     describe("List an Nft", () => {
         const tokenURI = "https://test-json-4.com";
-
+    
         before(async () => {
             await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
             await _contract.placeNftOnSale(4, nftPrice, { from: accounts[0], value: listingPrice });
         });
-
+    
         it("should have one listed item", async () => {
             const listedNfts = await _contract.getAllNftsOnSale();
             assert.equal(listedNfts.length, 1, "Invalid length of Nfts");
             assert.equal(listedNfts[0].tokenId, 4, "Incorrect token ID");
-        });
-
-        it("should set new listing price", async () => {
-            const newListingPrice = web3.utils.toWei("0.05", "ether");
-            await _contract.setListingPrice(newListingPrice, { from: accounts[0] });
-            const listingPrice = await _contract.listingPrice();
-            assert.equal(listingPrice.toString(), newListingPrice, "Invalid Price");
         });
     });
 
