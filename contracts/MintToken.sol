@@ -605,13 +605,25 @@ contract NftMarket is ERC721URIStorage {
         return items;
     }
 
-    function mintToken(string memory tokenURI, uint256 price)
-        public
-        payable
-        returns (uint256)
-    {
+    // function mintToken(string memory tokenURI, uint256 price) public payable returns (uint256) {
+    //     require(!_usedTokenURIs[tokenURI], "Token URI already exists ");
+    //     require(msg.value == listingPrice, "Price must be equal to listing price");
 
-    // function mintToken(string memory tokenURI, uint256 price) public listingPriceCheck(price) {
+    //     _tokenIds++;
+    //     uint256 newTokenId = _tokenIds;
+
+    //     _safeMint(msg.sender, newTokenId);
+    //     _setTokenURI(newTokenId, tokenURI);
+    //     _createNftItem(newTokenId, price);
+    //     // _createNftItem(newTokenId, listingPrice);
+    //     _usedTokenURIs[tokenURI] = true;
+
+    //     _listedItemsCount++;
+
+    //     return newTokenId;
+    // }
+
+        function mintToken(string memory tokenURI, uint256 price) public payable returns (uint256) {
         require(!_usedTokenURIs[tokenURI], "Token URI already exists ");
         require(msg.value == listingPrice, "Price must be equal to listing price");
 
@@ -627,6 +639,8 @@ contract NftMarket is ERC721URIStorage {
 
         return newTokenId;
     }
+
+
 
     function buyNft(uint256 tokenId) public payable {
         NftItem storage item = _idNftItem[tokenId];
@@ -656,6 +670,14 @@ contract NftMarket is ERC721URIStorage {
     function resetListedItemsCount() public {
         _listedItemsCount = 0;
     }
+
+    // function _createNftItem(uint256 tokenId, uint256 price) private {
+    //     require(price > 0, "Price must be at least 1 wei");
+
+    //     _idNftItem[tokenId] = NftItem(tokenId, price, msg.sender, true);
+
+    //     emit NftItemCreated(tokenId, price, msg.sender, true);
+    // }
 
     function _createNftItem(uint256 tokenId, uint256 price) private {
         require(price > 0, "Price must be at least 1 wei");

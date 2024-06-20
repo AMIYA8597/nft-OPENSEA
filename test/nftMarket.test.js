@@ -1115,7 +1115,6 @@ contract("NftMarket", (accounts) => {
         });
     });
 
-
     describe("Token transfer to new owner", () => {
         const tokenURI = "https://nfttoken.com/9";
     
@@ -1130,7 +1129,7 @@ contract("NftMarket", (accounts) => {
             assert.equal(balance.toNumber(), 1, "accounts[2] does not own the transferred token");
         });
     });
-
+    
     describe("List an Nft", () => {
         const tokenURI = "https://test-json-4.com";
     
