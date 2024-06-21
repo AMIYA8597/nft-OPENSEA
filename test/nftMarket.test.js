@@ -165,37 +165,8 @@ contract("NftMarket", (accounts) => {
         });
     });
 
-    // describe("Token transfer to new owner", () => {
-    //     const tokenURI = "https://nfttoken.com/9";
     
-    //     before(async () => {
-    //         await _contract.mintToken(tokenURI, nftPrice, { value: listingPrice, from: accounts[0] });
-    //         await _contract.approve(accounts[0], 3, { from: accounts[0] }); // Approve accounts[0] to transfer token 3
-    //         await _contract.transferFrom(accounts[0], accounts[2], 3, { from: accounts[0] });
-    //     });
-    
-    //     it("accounts[2] should own 1 token", async () => {
-    //         const balance = await _contract.balanceOf(accounts[2]);
-    //         assert.equal(balance.toNumber(), 1, "accounts[2] does not own the transferred token");
-    //     });
-    // });
-
-    // describe("List an Nft", () => {
-    //     const tokenURI = "https://test-json-4.com";
-    
-    //     before(async () => {
-    //         await _contract.mintToken(tokenURI, nftPrice, { from: accounts[0], value: listingPrice });
-    //         await _contract.placeNftOnSale(4, nftPrice, { from: accounts[0], value: listingPrice });
-    //     });
-    
-    //     it("should have one listed item", async () => {
-    //         const listedNfts = await _contract.getAllNftsOnSale();
-    //         assert.equal(listedNfts.length, 1, "Invalid length of Nfts");
-    //         assert.equal(listedNfts[0].tokenId, 4, "Incorrect token ID");
-    //     });
-    // });
-
-
+    // NEW PART
 
     describe("Token transfer to new owner", () => {
         const tokenURI = "https://nfttoken.com/9";

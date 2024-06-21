@@ -127,6 +127,10 @@ contract NftMarket is ERC721URIStorage {
         _allNfts.push(tokenId);
     }
 
+
+
+    //   NEW PART
+
     function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256) {
         require(index < ERC721.balanceOf(owner), "Index out of bounds");
         return _ownedTokens[owner][index];
@@ -179,9 +183,7 @@ contract NftMarket is ERC721URIStorage {
         _idToOwnedIndex[tokenId] = length;
     }
 
-    function _removeTokenFromOwnerEnumeration(address from, uint256 tokenId)
-        private
-    {
+    function _removeTokenFromOwnerEnumeration(address from, uint256 tokenId) private {
         uint256 lastTokenIndex = ERC721.balanceOf(from) - 1;
         uint256 tokenIndex = _idToOwnedIndex[tokenId];
 
@@ -207,6 +209,8 @@ contract NftMarket is ERC721URIStorage {
         delete _idToNftIndex[tokenId];
         _allNfts.pop();
     }
+
+
 }
 
 
