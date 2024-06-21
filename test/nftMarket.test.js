@@ -1,3 +1,24 @@
+// const assert = require('assert');
+// const NftMarket = artifacts.require("NftMarket");
+
+// contract("NftMarket", (accounts) => {
+//     let _contract;
+//     const nftPrice = web3.utils.toWei("5", "ether");
+//     const listingPrice = web3.utils.toWei("0.025", "ether");
+
+//     before(async () => {
+//         _contract = await NftMarket.new();
+//         // Setting the listing price to ensure consistency
+//         await _contract.setListingPrice(listingPrice);
+//     });
+
+//     beforeEach(async () => {
+//         // Reset the _listedItemsCount before each test case
+//         await _contract.resetListedItemsCount();
+//     });
+
+
+
 const assert = require('assert');
 const NftMarket = artifacts.require("NftMarket");
 
