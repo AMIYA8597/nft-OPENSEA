@@ -25,8 +25,13 @@ export default function Navbar() {
   const {contract} = useWeb3()
   console.log("this is inside navbar", contract );
 
-  const {data} = useAccount("some random params");
-  console.log("data is",data);
+  // const {data} = useAccount("some random params");
+  // console.log("data is",data);
+
+const accountHook = useAccount("some random params");
+console.log("useAccount result:", accountHook);
+
+
   
   
   return (
