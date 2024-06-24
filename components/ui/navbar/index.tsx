@@ -41,7 +41,7 @@ export default function Navbar() {
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
                     <BanIcon className="block h-6 w-6" aria-hidden="true" />
                   )}
