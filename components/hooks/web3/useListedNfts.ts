@@ -1,6 +1,6 @@
 
-import { CryptoHookFactory } from "@_types/hooks";
-import { Nft } from "@_types/nft";
+import { CryptoHookFactory } from "../../../types/hooks";;
+import { Nft } from "../../../types/nft";;
 import { ethers } from "ethers";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
