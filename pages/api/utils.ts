@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { withIronSession, Session } from "next-iron-session";
 import * as util from "ethereumjs-util";
 import contract from "../../public/contracts/MintToken.json";
-import { NftMarketContract } from "@_types/NftMarketContract";
+import { NftMarketContract } from "../../types/nftMarketContract";
 
 const NETWORKS = {
   "5777": "Ganache",

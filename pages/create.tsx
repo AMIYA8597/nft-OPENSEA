@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import { BaseLayout } from '@ui'
 import { Switch } from '@headlessui/react'
 import Link from 'next/link'
-import { NftMeta, PinataRes } from '@_types/nft';
+import { NftMeta, PinataRes } from '../types/nft';       //  "../../../types/hooks"
 import axios from 'axios';
 import { useWeb3 } from '@providers/web3';
 import { ethers } from 'ethers';
