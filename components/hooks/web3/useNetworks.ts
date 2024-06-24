@@ -1,4 +1,4 @@
-import { CryptoHookFactory } from "@_types/hooks";
+import { CryptoHookFactory } from "../../../types/hooks";;
 import useSWR from "swr";
 
 const NETWORKS: {[k: string]: string} = {
