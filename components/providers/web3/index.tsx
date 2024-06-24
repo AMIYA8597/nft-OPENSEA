@@ -50,6 +50,9 @@ const Web3Provider: FunctionComponent<Web3ProviderProps> = ({ children }) => {
         console.error("Please, install web3 wallet");
         setWeb3Api((api: Web3State) => createWeb3State({
           ...api,
+          ethereum: null,
+          provider: null,
+          contract: null,
           isLoading: false,
         }))
       }
@@ -76,6 +79,7 @@ export function useHooks() {
 }
 
 export default Web3Provider;
+
 
 
 

@@ -2,7 +2,8 @@
 import { setupHooks, Web3Hooks } from "@hooks/web3/setupHooks";
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import { Web3Dependencies } from "../../../types/hooks";
-import { Contract, ethers, Provider } from "ethers";
+import { Contract, ethers, providers } from "ethers";
+import { NftMarketContract } from "../../../types/nftMarketContract";
 
 declare global {
   interface Window {
@@ -14,33 +15,63 @@ type Nullable<T> = {
   [P in keyof T]: T[P] | null;
 }
 
-export type Web3State = {
-  isLoading: boolean; // true while loading web3State
+// export type Web3State = {
+//   isLoading: boolean; // true while loading web3State
+//   hooks: Web3Hooks;
+// } & Nullable<Web3Dependencies>
+
+// utils.ts or wherever your types are defined
+
+export interface Web3State {
+  isLoading: boolean;
   hooks: Web3Hooks;
-} & Nullable<Web3Dependencies>
-
-
-export const createDefaultState = () => {
-  return {
-    ethereum: null,
-    provider: null,
-    contract: null,
-    isLoading: true,
-    hooks: setupHooks({isLoading: true} as any)
-  }
+  provider: ethers.providers.Web3Provider | null;
+  contract: NftMarketContract | null;
+  ethereum: MetaMaskInpageProvider | null;
 }
 
-export const createWeb3State = ({
-  ethereum, provider, contract, isLoading
-}: Web3Dependencies) => {
-  return {
-    ethereum,
-    provider,
-    contract,
-    isLoading,
-    hooks: setupHooks({ethereum, provider, contract, isLoading})
-  }
-}
+// Make sure the createDefaultState function returns appropriate initial values
+export const createDefaultState = (): Web3State => ({
+  isLoading: true,
+  hooks: {} as Web3Hooks,
+  provider: null,
+  contract: null,
+  ethereum: null,
+});
+
+// utils.ts or wherever createWeb3State is defined
+
+export const createWeb3State = (overrides: Partial<Web3State> = {}): Web3State => ({
+  isLoading: true,
+  hooks: {} as Web3Hooks,
+  provider: null,
+  contract: null,
+  ethereum: null,
+  ...overrides,
+});
+
+
+// export const createDefaultState = () => {
+//   return {
+//     ethereum: null,
+//     provider: null,
+//     contract: null,
+//     isLoading: true,
+//     hooks: setupHooks({isLoading: true} as any)
+//   }
+// }
+
+// export const createWeb3State = ({
+//   ethereum, provider, contract, isLoading
+// }: Web3Dependencies) => {
+//   return {
+//     ethereum,
+//     provider,
+//     contract,
+//     isLoading,
+//     hooks: setupHooks({ethereum, provider, contract, isLoading})
+//   }
+// }
 
 const NETWORK_ID = process.env.NEXT_PUBLIC_NETWORK_ID;
 
