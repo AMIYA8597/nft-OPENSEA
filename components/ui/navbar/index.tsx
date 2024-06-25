@@ -9,6 +9,7 @@ import logo from "@images/small-eth.webp"
 import ActiveLink from "../link";
 import { useWeb3 } from "@/components/providers/web3";
 import { useAccount } from "@/components/hooks/web3/useAccount";
+import { useNetwork } from "@/components/hooks/web3";
 
 const navigation = [
   { name: "MarketPlace", href: "/", current: true },
@@ -25,11 +26,14 @@ export default function Navbar() {
   const {contract} = useWeb3()
   console.log("this is inside navbar", contract );
 
+  const { account } = useAccount();
+  const { network } = useNetwork();
+
   // const {data} = useAccount("some random params");
   // console.log("data is",data);
 
-const accountHook = useAccount("some random params");
-console.log("useAccount result:", accountHook);
+// const accountHook = useAccount("some random params");
+// console.log("useAccount result:", accountHook);
 
 
   
@@ -44,7 +48,7 @@ console.log("useAccount result:", accountHook);
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
+               p0: stringp0: stringp0?: string   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (

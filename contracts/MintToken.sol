@@ -13,6 +13,14 @@ contract NftMarket is ERC721URIStorage {
         bool isListed;
     }
 
+    // struct you {
+    //     uint id;
+    //     string name;
+    //     string company;
+    //     string designation;
+    //     uint years_of_experiance; 
+    // }
+
     uint256 public listingPrice = 0.025 ether;
     uint256 private _listedItemsCount;
     uint256 private _tokenIds;
