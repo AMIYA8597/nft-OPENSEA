@@ -17,7 +17,8 @@ function shortifyAddress(address: string) {
 
 // function shortifyAddress(address: string) {
 //   return `0x****${address.slice(-4)}`
-// }
+// }Property 'image' does not exist on type 'Nft'.ts(2339)
+
 
 const NftItem: FunctionComponent<NftItemProps> = ({item, buyNft}) => {
   return (
