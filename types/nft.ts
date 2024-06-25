@@ -20,9 +20,23 @@ export type NftCore = {
   isListed: boolean
 }
 
+// export type Nft = {
+//   meta: NftMeta
+// } & NftCore
+
 export type Nft = {
-  meta: NftMeta
-} & NftCore
+  tokenId: number;
+  name: string;
+  description: string;
+  creator: string;
+  price: number;
+  attributes: {
+    trait_type: string;
+    value: string;
+  }[];
+  image: string; // Add this line to include the image property
+};
+
 
 export type FileReq = {
   bytes: Uint8Array;
