@@ -6,6 +6,7 @@ import {
     BigNumberish,
   } from 'ethers';
   import { EthersContractContextV5 } from 'ethereum-abi-types-generator';
+import { NftMeta } from './nft';
   
   export type ContractContext = EthersContractContextV5<
     NftMarketContract,
@@ -124,6 +125,7 @@ import {
     tokenId: BigNumberish;
   }
   export interface NftitemResponse {
+    nftMeta: NftMeta;
     tokenId: BigNumber;
     0: BigNumber;
     price: BigNumber;

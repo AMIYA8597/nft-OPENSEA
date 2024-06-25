@@ -31,7 +31,8 @@ export const hookFactory: ListedNftsHookFactory = ({contract}) => () => {
           tokenId: item.tokenId.toNumber(),
           creator: item.creator,
           isListed: item.isListed,
-          meta
+          // meta:item.nftMeta,
+          meta: item.nftMeta,
         })
       }
       

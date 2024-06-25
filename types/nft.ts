@@ -30,6 +30,8 @@ export type Nft = {
   description: string;
   creator: string;
   price: number;
+  isListed:boolean;
+  meta: NftMeta;
   attributes: {
     trait_type: string;
     value: string;
