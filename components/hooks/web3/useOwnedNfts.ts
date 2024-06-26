@@ -26,13 +26,31 @@ export const hookFactory: OwnedNftsHookFactory = ({contract}) => () => {
         const metaRes = await fetch(tokenURI);
         const meta = await metaRes.json();
 
+        // nfts.push({
+        //   price: parseFloat(ethers.utils.formatEther(item.price)),
+        //   tokenId: item.tokenId.toNumber(),
+        //   creator: item.creator,
+        //   isListed: item.isListed,
+        //   meta
+        // })
+
         nfts.push({
           price: parseFloat(ethers.utils.formatEther(item.price)),
           tokenId: item.tokenId.toNumber(),
           creator: item.creator,
           isListed: item.isListed,
-          meta
+          name: "",
+          description: "",
+          meta: {
+            name: "",
+            description: "",
+            image: "",
+            attributes: []
+          },
+          attributes: [],
+          image: ""
         })
+
       }
       
       return nfts;
