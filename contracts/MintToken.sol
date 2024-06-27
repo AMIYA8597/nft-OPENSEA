@@ -74,7 +74,11 @@ contract NftMarket is ERC721URIStorage {
         emit NftItemCreated(tokenId, price, msg.sender, true);
     }
 
-        function resetListedItemsCount() public {
+    // function nftCreatedOne(address nft, uint number, string memory name) public pure {
+    //     require(number > 11, "number must be greater than 11");
+    // }
+
+    function resetListedItemsCount() public {
         _listedItemsCount = 0;
     }
 
