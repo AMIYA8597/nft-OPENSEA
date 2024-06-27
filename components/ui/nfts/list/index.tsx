@@ -26,8 +26,25 @@ import { NftMeta } from "../../../../types/nft";
             <>
     {item.map( (nft) => (
          <div key = {nft.image} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <NftItem  item = {nft}/>
-                {/* <NftItem /> */}
+                {/* <NftItem  item = {nft}/> */}
+                <NftItem item={{
+                tokenId: 0,
+                name: "",
+                description: "",
+                creator: "",
+                price: 0,
+                isListed: false,
+                meta: {
+                    name: "",
+                    description: "",
+                    image: "",
+                    attributes: []
+                },
+                attributes: [],
+                image: ""
+            }} buyNft={function (token: number, value: number): Promise<void> {
+                throw new Error("Function not implemented.");
+            } } />
         </div>
     ))}
                
