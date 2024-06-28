@@ -74,9 +74,6 @@ contract NftMarket is ERC721URIStorage {
         emit NftItemCreated(tokenId, price, msg.sender, true);
     }
 
-    // function nftCreatedOne(address nft, uint number, string memory name) public pure {
-    //     require(number > 11, "number must be greater than 11");
-    // }
  
     function resetListedItemsCount() public {
         _listedItemsCount = 0;
@@ -157,6 +154,10 @@ contract NftMarket is ERC721URIStorage {
         }
 
         return items;
+    }
+
+    function numberOfNft(uint number) public pure {
+        require( number>0,"there is no nft in this particular address");
     }
 
     function getOwnedNfts() public view returns (NftItem[] memory) {
